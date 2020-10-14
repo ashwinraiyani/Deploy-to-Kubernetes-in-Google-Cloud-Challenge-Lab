@@ -133,7 +133,7 @@ sed -i "s/YOUR_PROJECT/$GOOGLE_CLOUD_PROJECT/g" Jenkinsfile
 git config --global user.email "<<qwiklabs user email id>>"
 
 Click on Cloud Console --> Profile Icon >> Copy User Name (Something like *Student 34343*)
-![screen]
+![screen](https://github.com/ashwinraiyani/skillbadge6/blob/main/62.png)
 git config --global user.name "<<Enter the User Name >>" 
   
 git add .
