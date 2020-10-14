@@ -10,11 +10,17 @@ gcloud source repos clone valkyrie-app
 cd valkyrie-app
 
 cat > Dockerfile <<EOF
+
 FROM golang:1.10
+
 WORKDIR /go/src/app
+
 COPY source .
+
 RUN go install -v
+
 ENTRYPOINT ["app","-single=true","-port=8080"]
+
 EOF
 
 docker build -t valkyrie-app:v0.0.1 .
@@ -64,12 +70,15 @@ git merge origin/kurt-dev
 
 kubectl edit deployment valkyrie-dev
 
-## In begining of file  edit the field "replicas" from 1 to 3. And scroll down and bottom of file edit the field "replicas" from 1 to 3. Save Exit (Press Escape-> type :wq --> Enter)
+## In begining of file,  edit the field "replicas" from 1 to 3. And scroll down and bottom of file edit the field "replicas" from 1 to 3. Save Exit (Press Escape-> type :wq --> Enter)
 
 
 docker build -t gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.2 .
+
 docker push gcr.io/$GOOGLE_CLOUD_PROJECT/valkyrie-app:v0.0.2
+
 kubectl edit deployment valkyrie-dev
+
 
 ## Change the image tag from v0.0.1 to v0.0.2. (two places need to changes) Save Exit (Press Escape-> type :wq --> Enter)
 
@@ -95,7 +104,7 @@ gcloud source repos list
 
 Click on the Web Preview button in cloud shell, then click “Preview on port 8080” to connect to the Jenkins console.
 Username: admin
-password: <<Enter Jenkins Password>>
+password: Enter Jenkins Password
   
 
 In the Jenkins user interface, click Credentials in the left navigation.
@@ -107,9 +116,6 @@ Click Global credentials (unrestricted).
 Click adding some credentials
 
 Select Google Service Account from metadata from the Kind drop-down and click OK.
-
-
-6.3 Creating the Jenkins job
 
 Click Jenkins > New Item in the left navigation:
 
@@ -130,11 +136,11 @@ sed -i "s/green/orange/g" source/html.go
 
 sed -i "s/YOUR_PROJECT/$GOOGLE_CLOUD_PROJECT/g" Jenkinsfile
 
-git config --global user.email "<<qwiklabs user email id>>"
+git config --global user.email "**qwiklabs user email id**"
 
 Click on Cloud Console --> Profile Icon >> Copy User Name (Something like *Student 34343*)
 ![screen](https://github.com/ashwinraiyani/skillbadge6/blob/main/62.png)
-git config --global user.name "<<Enter the User Name >>" 
+git config --global user.name "**Paste username here**" 
   
 git add .
 
