@@ -131,6 +131,10 @@ Click Save.
 
 
 Now on cloud shell Run
+  
+  Open Jenkinsfile file in a text editor, and replace YOUR_PROJECT with your GCP project ID.
+  
+  
 
 sed -i "s/green/orange/g" source/html.go
 
